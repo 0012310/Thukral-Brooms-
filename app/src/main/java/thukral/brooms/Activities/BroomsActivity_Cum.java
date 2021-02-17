@@ -69,6 +69,8 @@ public class BroomsActivity_Cum extends AppCompatActivity {
         allBroomsArrayList.clear();
         CALL_API_PAGER();
         pagerarray_list.clear();
+
+        // Hello Kv rana
     }
 
     private void CALL_API_PAGER() {

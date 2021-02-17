@@ -70,7 +70,7 @@ public class BroomsActivity_Cum extends AppCompatActivity {
         CALL_API_PAGER();
         pagerarray_list.clear();
 
-        // Hello Kv rana from github
+        // Hello Kv rana from github , now to github
     }
 
     private void CALL_API_PAGER() {

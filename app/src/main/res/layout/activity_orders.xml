@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Orders">
+
+
+
+    <include layout="@layout/custom_tool" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_weight="9"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/liner_empaty"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/img_empty"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10sp"
+            android:src="@drawable/ic_shopping_cart_black_24dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/tvInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="There is no Order"
+            android:textColor="#848484"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/add_newlist"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="10sp"
+            android:background="@color/colorPrimary"
+            android:text="MAKE AN ORDER"
+            android:textColor="@color/gen_white" />
+    </LinearLayout>
+
+</LinearLayout>

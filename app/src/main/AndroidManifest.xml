@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="thukral.brooms">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".sabActivities.WipersSubActivity"></activity>
+        <activity android:name=".sabActivities.SubToSubData" />
+        <activity android:name=".sabActivities.BroomsSubCategory" />
+        <activity android:name=".sabActivities.PochaActivity" />
+        <activity android:name=".sabActivities.MopActivity" />
+        <activity android:name=".sabActivities.DusterActivity" />
+        <activity android:name=".sabActivities.BrushsActivity" />
+        <activity android:name=".sabActivities.WiperActivity" />
+        <activity android:name=".Activities.CleanActivity_Cum" />
+        <activity android:name=".Activities.TeaActivity_Cum" />
+        <activity android:name=".Activities.BroomsActivity_Cum" />
+        <activity android:name=".Activities.Orders" />
+        <activity android:name=".Activities.COD" />
+        <activity android:name=".Activities.Term_Conditions" />
+        <activity android:name=".Activities.Support" />
+        <activity android:name=".Activities.Profile" />
+        <activity android:name=".Activities.TeaDetails" />
+        <activity android:name=".Activities.CleanDetails" />
+        <activity android:name=".Activities.BroomsDetails" />
+        <activity android:name=".Activities.CartList" />
+        <activity android:name=".Activities.WishList" />
+        <activity android:name=".Activities.FogogotPass_OTP" />
+        <activity android:name=".sabActivities.BroomsCategory" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name=".Activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.Splash"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.ForgetActivity" />
+        <activity android:name=".Activities.RegisterActivity" />
+    </application>
+
+</manifest>

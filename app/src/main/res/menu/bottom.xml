@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_brooms"
+        android:icon="@drawable/ic_menu_share"
+        android:title="Brooms" />
+
+
+    <item
+        android:id="@+id/navigation_tea"
+        android:icon="@drawable/ic_menu_share"
+        android:title="Tea" />
+
+
+</menu>

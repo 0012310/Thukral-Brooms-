@@ -7,6 +7,16 @@ public class modelOrder {
     private String product_id ;
     private String quantity ;
     private String user_id ;
+
+
+
+    private String distributor_name ;
+    private String distributor_phone ;
+    private String distributor_address ;
+    private String distributor_city ;
+    private String distributor_zone ;
+    private String distributor_state ;
+
     private String name ;
     private String category_name ;
     private String sub_name ;
@@ -23,14 +33,19 @@ public class modelOrder {
     private String date_created ;
     private String total_piece ;
 
-
-    public modelOrder(String order_id, String txn_id, String order_code, String product_id, String quantity, String user_id, String name, String category_name, String sub_name, String sales_price, String image, String total_price, String deliver_days, String payment_status, String payment_mode, String status, String invoice, String date_created, String total_piece) {
+    public modelOrder(String order_id, String txn_id, String order_code, String product_id, String quantity, String user_id, String distributor_name, String distributor_phone, String distributor_address, String distributor_city, String distributor_zone, String distributor_state, String name, String category_name, String sub_name, String sales_price, String image, String total_price, String deliver_days, String payment_status, String payment_mode, String status, String invoice, String date_created, String total_piece) {
         this.order_id = order_id;
         this.txn_id = txn_id;
         this.order_code = order_code;
         this.product_id = product_id;
         this.quantity = quantity;
         this.user_id = user_id;
+        this.distributor_name = distributor_name;
+        this.distributor_phone = distributor_phone;
+        this.distributor_address = distributor_address;
+        this.distributor_city = distributor_city;
+        this.distributor_zone = distributor_zone;
+        this.distributor_state = distributor_state;
         this.name = name;
         this.category_name = category_name;
         this.sub_name = sub_name;
@@ -68,6 +83,30 @@ public class modelOrder {
 
     public String getUser_id() {
         return user_id;
+    }
+
+    public String getDistributor_name() {
+        return distributor_name;
+    }
+
+    public String getDistributor_phone() {
+        return distributor_phone;
+    }
+
+    public String getDistributor_address() {
+        return distributor_address;
+    }
+
+    public String getDistributor_city() {
+        return distributor_city;
+    }
+
+    public String getDistributor_zone() {
+        return distributor_zone;
+    }
+
+    public String getDistributor_state() {
+        return distributor_state;
     }
 
     public String getName() {

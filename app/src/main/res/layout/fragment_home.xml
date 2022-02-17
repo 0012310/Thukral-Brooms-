@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".Fragments.HomeFragment">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -201,7 +201,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:layout_weight="3"
-                        android:src="@drawable/broom">
+                        android:src="@drawable/brooms">
 
                     </ImageView>
 
@@ -213,7 +213,7 @@
                         android:layout_weight="2"
                         android:gravity="center"
                         android:text="Brooms"
-                        android:textSize="35sp"
+                        android:textSize="25sp"
                         android:textColor="#000"
                         android:textStyle="normal">
 
@@ -222,6 +222,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/liner_wiper"
                     android:layout_margin="10dp"
                     android:background="@drawable/edittext_back"
@@ -231,26 +232,26 @@
                     android:weightSum="5">
 
                     <TextView
-                        android:layout_width="127dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="10dp"
                         android:layout_weight="2"
                         android:gravity="center"
                         android:text="Wiper"
-                        android:textSize="35sp"
+                        android:textSize="25sp"
                         android:textColor="#000"
                         android:textStyle="normal">
 
                     </TextView>
 
                     <ImageView
-                        android:layout_margin="10dp"
                         android:layout_width="0dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
+                        android:layout_margin="10dp"
                         android:layout_weight="3"
-                        android:background="@drawable/brush4">
+                        android:src="@drawable/wiper">
 
                     </ImageView>
 
@@ -258,6 +259,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/liner_brushes"
                     android:layout_margin="10dp"
                     android:background="@drawable/edittext_back"
@@ -269,10 +271,10 @@
                     <ImageView
                         android:layout_margin="10dp"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="150dp"
                         android:layout_gravity="center"
                         android:layout_weight="3"
-                        android:background="@drawable/brushes2">
+                        android:background="@drawable/brushes">
 
                     </ImageView>
 
@@ -284,15 +286,15 @@
                         android:layout_weight="2"
                         android:gravity="center"
                         android:text="Brushes"
-                        android:textSize="35sp"
+                        android:textSize="25sp"
                         android:textColor="#000"
                         android:textStyle="normal">
 
                     </TextView>
 
                 </LinearLayout>
-
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/liner_duster"
                     android:layout_margin="10dp"
                     android:background="@drawable/edittext_back"
@@ -309,7 +311,7 @@
                         android:layout_weight="2"
                         android:gravity="center"
                         android:text="Duster"
-                        android:textSize="35sp"
+                        android:textSize="25sp"
                         android:textColor="#000"
                         android:textStyle="normal">
 
@@ -321,7 +323,7 @@
                         android:layout_height="150dp"
                         android:layout_gravity="center"
                         android:layout_weight="3"
-                        android:src="@drawable/broom">
+                        android:src="@drawable/duster">
 
                     </ImageView>
 
@@ -329,6 +331,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/liner_mop"
                     android:layout_margin="10dp"
                     android:background="@drawable/edittext_back"
@@ -356,7 +359,7 @@
                         android:gravity="center"
                         android:text="Mops"
                         android:textColor="#000"
-                        android:textSize="35sp"
+                        android:textSize="25sp"
                         android:textStyle="normal">
 
                     </TextView>
@@ -374,12 +377,13 @@
                     <TextView
                         android:layout_margin="10dp"
                         android:layout_width="0dp"
-                        android:layout_height="50dp"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="2"
                         android:gravity="center"
-                        android:text="Pocha"
-                        android:textSize="35sp"
+                        android:maxLines="2"
+                        android:text="Cleaning Products"
+                        android:textSize="25sp"
                         android:textColor="#000"
                         android:textStyle="normal">
 
@@ -391,13 +395,14 @@
                         android:layout_height="150dp"
                         android:layout_gravity="center"
                         android:layout_weight="3"
-                        android:src="@drawable/broom">
+                        android:src="@drawable/pocha">
 
                     </ImageView>
 
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/liner_tea"
                     android:layout_margin="10dp"
@@ -413,7 +418,7 @@
                         android:layout_height="150dp"
                         android:layout_gravity="center"
                         android:layout_weight="3"
-                        android:src="@drawable/broom">
+                        android:src="@drawable/tea">
 
                     </ImageView>
 
@@ -425,7 +430,7 @@
                         android:layout_weight="2"
                         android:gravity="center"
                         android:text="Tea"
-                        android:textSize="35sp"
+                        android:textSize="25sp"
                         android:textColor="#000"
                         android:textStyle="normal">
 
@@ -436,5 +441,5 @@
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

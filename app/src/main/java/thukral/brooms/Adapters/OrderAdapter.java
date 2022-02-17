@@ -25,7 +25,7 @@ import thukral.brooms.R;
 import thukral.brooms.model.modelOrder;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
-    Context context  ;
+    Context context;
     ArrayList<modelOrder> modelOrderArrayList = new ArrayList<>();
 
     public OrderAdapter(Context context, ArrayList<modelOrder> modelOrderArrayList) {
@@ -53,7 +53,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .dontAnimate().into(holder.image_orderd);
-        holder.tv_price.setText("Rs"+" "+modelOrderArrayList.get(i).getSales_price());
+        holder.tv_price.setText("Rs" + " " + modelOrderArrayList.get(i).getSales_price());
+        holder.tv_distributorDetails.setText("Distributor Details :" + modelOrderArrayList.get(i).getDistributor_name() +
+                "," + modelOrderArrayList.get(i).getDistributor_zone() + "," + modelOrderArrayList.get(i).getDistributor_state());
         holder.tv_order_id.setText("ORDER NO :" + " " + modelOrderArrayList.get(i).getOrder_id());
 
         holder.prod_name.setText(modelOrderArrayList.get(i).getName());
@@ -70,7 +72,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                     // Toast.makeText(context, "Hi", Toast.LENGTH_SHORT).show();
                     Uri uri = Uri.parse(modelOrderArrayList.get(i).getInvoice()); // missing 'http://' will cause crashed
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    Log.d("jfdshf",""+uri);  //invoice.php?orderid=OD018
+                    Log.d("jfdshf", "" + uri);  //invoice.php?orderid=OD018
                     context.startActivity(intent);
 
                 }
@@ -89,15 +91,17 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ProgressDialog progressDialog;
-        ImageView image_orderd  ;
-        TextView tv_price  ,tv_order_id, tv_invoice ,  prod_name ,tv_delevirychrg , tv_set , tv_del_date ;
-        LinearLayout layout_download_invoice ;
+        ImageView image_orderd;
+        TextView tv_distributorDetails, tv_price, tv_order_id, tv_invoice, prod_name, tv_delevirychrg, tv_set, tv_del_date;
+        LinearLayout layout_download_invoice;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            image_orderd=itemView.findViewById(R.id.image_orderd);
-            tv_price=itemView.findViewById(R.id.tv_price);
+            image_orderd = itemView.findViewById(R.id.image_orderd);
+            tv_distributorDetails = itemView.findViewById(R.id.tv_distributorDetails);
+            tv_price = itemView.findViewById(R.id.tv_price);
             tv_invoice = itemView.findViewById(R.id.tv_invoice);
-            tv_order_id=itemView.findViewById(R.id.tv_order_id);
+            tv_order_id = itemView.findViewById(R.id.tv_order_id);
             layout_download_invoice = itemView.findViewById(R.id.layout_download_invoice);
             prod_name = itemView.findViewById(R.id.prod_name);
             tv_delevirychrg = itemView.findViewById(R.id.tv_delevirychrg);

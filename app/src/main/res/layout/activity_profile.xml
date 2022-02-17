@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Activities.Profile">
 
 
@@ -15,14 +14,14 @@
 
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:background="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
+                android:background="@color/colorPrimaryDark"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -55,205 +54,191 @@
                 </RelativeLayout>
 
 
-
-
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="Full Name"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:padding="10dp"
                     android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clickable="true" />
+                    android:clickable="true"
+                    android:padding="10dp" />
 
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="Mobile No"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:padding="10dp"
                     android:id="@+id/et_mob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:inputType="phone"
-                    android:maxLength="10" />
-
-
-
-
-
+                    android:maxLength="10"
+                    android:padding="10dp" />
 
 
                 <TextView
 
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="Email-Id"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:padding="10dp"
                     android:id="@+id/et_email"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:padding="10dp" />
 
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="Company Name"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:padding="10dp"
                     android:id="@+id/et_company_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="GST No"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:padding="10dp"
                     android:id="@+id/et_gst_no"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
 
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="Address"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:padding="10dp"
                     android:id="@+id/et_address"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="LandMark"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:padding="10dp"
                     android:id="@+id/et_location"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="City"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:padding="10dp"
                     android:id="@+id/et_city"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="PIN Code"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:inputType="number"
-                    android:maxLength="6"
-                    android:padding="10dp"
                     android:id="@+id/et_zip"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-
-
-
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:padding="10dp" />
 
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="State"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:padding="10dp"
                     android:id="@+id/et_state"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
 
 
                 <TextView
-                    android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5"
+                    android:padding="10dp"
                     android:text="Country"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:padding="10dp"
                     android:id="@+id/et_country"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:padding="10dp" />
 
 
                 <Button
@@ -275,12 +260,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-
-
-
-
-
 
 
     </ScrollView>

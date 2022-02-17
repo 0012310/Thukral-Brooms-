@@ -43,11 +43,26 @@
 
                 </TextView>
 
+                <TextView
+                    android:id="@+id/tv_distributorDetails"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textColor="#000"
+                    android:textStyle="normal"
+                    android:fontFamily="sans-serif"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="3">
+
+
 
                     <ImageView
                         android:id="@+id/image_orderd"
@@ -144,6 +159,7 @@
                     android:background="@color/Grey" />
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:orientation="horizontal"
@@ -202,6 +218,7 @@
                 </LinearLayout>
 
                 <View
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/view_width_small"
                     android:layout_marginTop="@dimen/margin_medium"

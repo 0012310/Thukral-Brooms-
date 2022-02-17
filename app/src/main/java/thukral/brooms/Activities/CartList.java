@@ -15,9 +15,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,7 +68,10 @@ public class CartList extends AppCompatActivity implements Activity_refresh_Oncl
     private String userChoosenTask;
     String PRICE, EXISTING_USER;
     private static int TIME_OUT = 2500;
-    Button add_newlist ;
+    Button add_newlist;
+    Spinner spinner_state, spinner_zone, spinner_distributor;
+    Button btnPlaceOrder;
+    String dis_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +86,7 @@ public class CartList extends AppCompatActivity implements Activity_refresh_Oncl
         txtTitle = findViewById(R.id.txtTitle);
         txtTitle.setText("Cart List");
         layout_payment = findViewById(R.id.layout_payment);
-        add_newlist=findViewById(R.id.add_newlist);
+        add_newlist = findViewById(R.id.add_newlist);
         add_newlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,9 +138,12 @@ public class CartList extends AppCompatActivity implements Activity_refresh_Oncl
         text_make_payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 //   PAYMENT_OPTIONS();
-                MakePAY_API();
-                progressDialog.show();
+                //  MakePAY_API();
+                //  progressDialog.show();
+
+                CallDialogueForSelect();
             }
         });
 
@@ -157,12 +166,257 @@ public class CartList extends AppCompatActivity implements Activity_refresh_Oncl
 
     }
 
-    private void MakePAY_API() {
+
+    private void CallDialogueForSelect() {
+
+        AlertDialog scheduleDialog;
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        AlertDialog.Builder builderAlert = new AlertDialog.Builder(context);
+        selectState();
+        final View country_alert_view = inflater.inflate(R.layout.selectdistiibutor, null);
+
+        spinner_state = country_alert_view.findViewById(R.id.spinner_state);
+        spinner_zone = country_alert_view.findViewById(R.id.spinner_zone);
+        spinner_distributor = country_alert_view.findViewById(R.id.spinner_distributor);
+
+        btnPlaceOrder = country_alert_view.findViewById(R.id.btnPlaceOrder);
+
+
+        spinner_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                CallZoneApi(stringArrayList_state_id.get(i));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spinner_zone.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                CallDistApi(stringArrayList_zone_id.get(i));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spinner_distributor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                dis_id = stringArrayList_dis_id.get(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        btnPlaceOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (spinner_state.getSelectedItem().toString().equals("Select State")) {
+                    Toast.makeText(context, "Select State first", Toast.LENGTH_SHORT).show();
+                } else if (spinner_zone.getSelectedItem().toString().equals("Select Zone")) {
+                    Toast.makeText(context, "Select Zone first", Toast.LENGTH_SHORT).show();
+                } else if (spinner_distributor.getSelectedItem().toString().equals("Select Distributor")) {
+                    Toast.makeText(context, "Select Distributor first", Toast.LENGTH_SHORT).show();
+                } else {
+                    MakePAY_API(dis_id);
+                }
+
+
+            }
+        });
+
+        builderAlert.setView(country_alert_view);
+        builderAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+            }
+        });
+        builderAlert.setCancelable(true);
+        scheduleDialog = builderAlert.create();
+        builderAlert.show();
+    }
+
+
+    ArrayList<String> stringArrayList_state = new ArrayList<>();
+    ArrayList<String> stringArrayList_state_id = new ArrayList<>();
+
+    ArrayList<String> stringArrayList_zone = new ArrayList<>();
+    ArrayList<String> stringArrayList_zone_id = new ArrayList<>();
+
+    ArrayList<String> stringArrayList_dis = new ArrayList<>();
+    ArrayList<String> stringArrayList_dis_id = new ArrayList<>();
+
+
+    private void selectState() {
+        progressDialog.show();
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://thukralbroom.com/api/all-state.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        stringArrayList_state.add(jsonObject1.getString("state"));
+                        stringArrayList_state_id.add(jsonObject1.getString("id"));
+                    }
+                    ArrayAdapter arrayAdapter = new ArrayAdapter(CartList.this, android.R.layout.simple_spinner_item, stringArrayList_state);
+                    arrayAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                    spinner_state.setAdapter(arrayAdapter);
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(context, "" + error, Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("zone_id", LocalSharedPreferences.getUserid(context));
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+    }
+
+    private void CallZoneApi(final String id) {
+        progressDialog.show();
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://thukralbroom.com/api/all-zone.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getString("Error").equals("1")) {
+                        spinner_zone.setVisibility(View.VISIBLE);
+                        JSONArray jsonArray = jsonObject.getJSONArray("data");
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            stringArrayList_zone.add(jsonObject1.getString("zone"));
+                            stringArrayList_zone_id.add(jsonObject1.getString("zone_id"));
+                        }
+                        ArrayAdapter arrayAdapter = new ArrayAdapter(CartList.this, android.R.layout.simple_spinner_item, stringArrayList_zone);
+                        arrayAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                        spinner_zone.setAdapter(arrayAdapter);
+
+                    } else {
+                        progressDialog.dismiss();
+                        spinner_zone.setVisibility(View.GONE);
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(context, "" + error, Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("state_id", "" + id);
+                Log.d("hdsag", params.toString());
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+    }
+
+    private void CallDistApi(final String id) {
+        progressDialog.show();
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://thukralbroom.com/api/all-distrib.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getString("Error").equals("1")) {
+                        spinner_distributor.setVisibility(View.VISIBLE);
+                        JSONArray jsonArray = jsonObject.getJSONArray("data");
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            stringArrayList_dis.add(jsonObject1.getString("distributor"));
+                            stringArrayList_dis_id.add(jsonObject1.getString("id"));
+                        }
+                        ArrayAdapter arrayAdapter = new ArrayAdapter(CartList.this, android.R.layout.simple_spinner_item, stringArrayList_dis);
+                        arrayAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                        spinner_distributor.setAdapter(arrayAdapter);
+                    } else {
+                        progressDialog.dismiss();
+                        spinner_distributor.setVisibility(View.GONE);
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(context, "" + error, Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("zone_id", "" + id);
+                Log.d("hdsag", params.toString());
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+    }
+
+    private void MakePAY_API(final String dis_id) {
+        progressDialog.show();
+
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://thukralbroom.com/api/orders.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(context, "" + response, Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+
                 Log.d("data_pay", response);
                 progressDialog.dismiss();
                 try {
@@ -170,9 +424,9 @@ public class CartList extends AppCompatActivity implements Activity_refresh_Oncl
                     if (jsonObject.getString("Error").equals("1")) {
                         Toast.makeText(context, "Your Order Successfully Placed ", Toast.LENGTH_LONG).show();
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
-                        for(int i=0;i<jsonArray.length();i++){
+                        for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            Toast.makeText(context, ""+jsonObject1.getString("link"), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "" + jsonObject1.getString("link"), Toast.LENGTH_SHORT).show();
                             CallDialogue(jsonObject1.getString("link"));
                         }
 
@@ -206,6 +460,8 @@ public class CartList extends AppCompatActivity implements Activity_refresh_Oncl
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("user_id", LocalSharedPreferences.getUserid(context));
+                params.put("distributor_id", "" + dis_id);
+
                 return params;
             }
         };

@@ -26,7 +26,7 @@ public class Support extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_support);
         txtTitle = findViewById(R.id.txtTitle);
-        txtTitle.setText("Term & Conditions");
+        txtTitle.setText("Support");
         imgBack = findViewById(R.id.imgBack);
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +39,7 @@ public class Support extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Toast.makeText(getContext(), "Calling", Toast.LENGTH_SHORT).show();
-                String phone = "9899299237";
+                String phone = "9599934892";
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
                 startActivity(intent);
             }

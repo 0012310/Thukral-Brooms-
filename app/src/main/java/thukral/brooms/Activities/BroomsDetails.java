@@ -40,7 +40,6 @@ import thukral.brooms.R;
 
 public class BroomsDetails extends AppCompatActivity {
 
-    // To github
     Context context;
     ProgressDialog progressDialog;
     ImageView minus_quantity, plus_quantity;

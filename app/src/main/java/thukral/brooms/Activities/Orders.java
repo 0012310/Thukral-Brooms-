@@ -72,6 +72,7 @@ public class Orders extends AppCompatActivity {
     }
 
     private void CALL_API_ORDERS(String ID) {
+        progressDialog.show();
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://thukralbroom.com/api/all-orders.php", new Response.Listener<String>() {
             @Override
@@ -88,8 +89,11 @@ public class Orders extends AppCompatActivity {
 
 
                             modelOrderArrayList.add(new modelOrder(jsonObject1.getString("order_id"), jsonObject1.getString("txn_id"), jsonObject1.getString("order_code"),
-                                    jsonObject1.getString("product_id"), jsonObject1.getString("quantity"), jsonObject1.getString("user_id"), jsonObject1.getString("name"),
-                                    jsonObject1.getString("category_name"), jsonObject1.getString("sub_name"), jsonObject1.getString("sales_price"), jsonObject1.getString("Image"),
+                                    jsonObject1.getString("product_id"), jsonObject1.getString("quantity"), jsonObject1.getString("user_id"),
+                                    jsonObject1.getString("distributor_name"), jsonObject1.getString("distributor_phone"), jsonObject1.getString("distributor_address"),
+                                    jsonObject1.getString("distributor_city"), jsonObject1.getString("distributor_zone"), jsonObject1.getString("distributor_state"),
+                                    jsonObject1.getString("name"), jsonObject1.getString("category_name"), jsonObject1.getString("sub_name"),
+                                    jsonObject1.getString("sales_price"), jsonObject1.getString("Image"),
                                     jsonObject1.getString("total_price"), jsonObject1.getString("deliver_days"), jsonObject1.getString("payment_status"), jsonObject1.getString("payment_mode"),
                                     jsonObject1.getString("status"), jsonObject1.getString("invoice"), jsonObject1.getString("date_created"), jsonObject1.getString("total_piece")));
 
@@ -124,8 +128,8 @@ public class Orders extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-           //     params.put("user_id", "" + LocalSharedPreferences.getUserid(context));
-                  params.put("user_id","14");
+                params.put("user_id", "" + LocalSharedPreferences.getUserid(context));
+                //   params.put("user_id","14");
                 return params;
             }
         };

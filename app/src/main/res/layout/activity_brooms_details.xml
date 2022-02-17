@@ -83,6 +83,7 @@
                         android:textSize="12dp" />
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/tv_reg_price"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -93,9 +94,10 @@
                         android:textSize="12dp" />
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/tv_product_price_per"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="16dp"
                         android:paddingLeft="@dimen/margin_10"
                         android:text="%"
                         android:textColor="@color/colorPrimary"

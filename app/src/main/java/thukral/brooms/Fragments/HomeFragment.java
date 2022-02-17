@@ -38,6 +38,7 @@ import java.util.TimerTask;
 import me.relex.circleindicator.CircleIndicator;
 import thukral.brooms.Activities.BroomsActivity_Cum;
 import thukral.brooms.Activities.CleanActivity_Cum;
+import thukral.brooms.Activities.CleaningItems;
 import thukral.brooms.Activities.TeaActivity_Cum;
 import thukral.brooms.Adapters.HomePagerAdapter;
 import thukral.brooms.R;
@@ -141,11 +142,14 @@ public class HomeFragment extends Fragment {
         liner_pocha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplication(), PochaActivity.class);
+                /*Intent intent = new Intent(getActivity().getApplication(), PochaActivity.class);
+                startActivity(intent);*/
+
+                Intent intent = new Intent(getActivity().getApplication(), CleaningItems.class);
                 startActivity(intent);
+
             }
         });
-
 
 
         liner_tea.setOnClickListener(new View.OnClickListener() {

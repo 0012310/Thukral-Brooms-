@@ -29,6 +29,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import thukral.brooms.AboutUs;
 import thukral.brooms.Adapters.BroomAdapter;
 import thukral.brooms.Database.LocalSharedPreferences;
 import thukral.brooms.Fragments.CleanFragment;
@@ -189,8 +190,6 @@ public class MainActivity extends AppCompatActivity
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                         tv_header_name.setText(jsonObject1.getString("fullname"));
-
-
                         Glide.with(context).load(jsonObject1.getString("image")).crossFade()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .placeholder(R.drawable.profile)
@@ -229,7 +228,7 @@ public class MainActivity extends AppCompatActivity
         adapter.addFragment(new HomeFragment(), " Home ");
         adapter.addFragment(new BroomsFragment(), " Brooms ");
         adapter.addFragment(new TeaFragment(), " Tea ");
-        adapter.addFragment(new CleanFragment(), "Clean Items");
+        adapter.addFragment(new CleanFragment(), "Cleaning Products");
         viewPager.setAdapter(adapter);
     }
 
@@ -452,6 +451,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_support) {
             Intent intent = new Intent(MainActivity.this, Support.class);
+            startActivity(intent);
+
+        } else if (id == R.id.nav_aboutUs) {
+            Intent intent = new Intent(MainActivity.this, AboutUs.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_share) {

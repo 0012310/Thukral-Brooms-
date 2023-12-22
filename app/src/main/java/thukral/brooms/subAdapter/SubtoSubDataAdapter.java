@@ -71,7 +71,7 @@ public class SubtoSubDataAdapter  extends RecyclerView.Adapter<SubtoSubDataAdapt
 
          cl = (SubToSubData) context;
 
-        Glide.with(context).load(modelsubtosubListArrayList.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelsubtosubListArrayList.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.logo_bg)
                 .dontAnimate().into(holder.thumbnail);

@@ -60,7 +60,7 @@ public class Bsp_Grid extends ArrayAdapter<GridItem> {
         GridItem item = mGridData.get(position);
         holder.titleTextView.setText(Html.fromHtml(item.getTitle()));
 
-        Picasso.with(mContext).load(item.getImage()).placeholder(R.drawable.ic_add_to_cart_24dp).into(holder.imageView);
+       // Picasso.with(mContext).load(item.getImage()).placeholder(R.drawable.ic_add_to_cart_24dp).into(holder.imageView);
         return row;
     }
 

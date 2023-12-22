@@ -73,7 +73,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
 */
 
-        Glide.with(context).load(modelAllBroomsArrayList.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelAllBroomsArrayList.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .dontAnimate().into(holder.thumbnail);

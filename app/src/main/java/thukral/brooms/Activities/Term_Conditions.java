@@ -41,7 +41,8 @@ public class Term_Conditions extends AppCompatActivity {
         web_view_term.loadUrl("https://www.brkonline.in/brk/api/terms.php");
 
         web_view_privacy = findViewById(R.id.web_view_privacy);
-        web_view_privacy.loadUrl("https://www.brkonline.in/brk/api/privacy-policy.php");
+       // web_view_privacy.loadUrl("https://www.brkonline.in/brk/api/privacy-policy.php");
+        web_view_privacy.loadUrl("https://thukralbroom.com/privacy-policy.php");
 
         web_view_payment = findViewById(R.id.web_view_payment);
         web_view_payment.loadUrl("https://www.brkonline.in/brk/api/payments.php");

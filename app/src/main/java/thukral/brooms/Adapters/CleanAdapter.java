@@ -79,7 +79,7 @@ public class CleanAdapter extends RecyclerView.Adapter<CleanAdapter.ViewHolder> 
         holder.sales_price.setText("Rs" + " " + modelAllCleanArrayList.get(i).getSales_price());
         holder.reg_price.setText("Rs" + " " + modelAllCleanArrayList.get(i).getRegular_price());
 
-        Glide.with(context).load(modelAllCleanArrayList.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelAllCleanArrayList.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.logo_bg)
                 .dontAnimate().into(holder.thumbnail);

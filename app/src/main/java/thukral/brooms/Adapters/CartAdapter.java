@@ -78,7 +78,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.tv_name.setText(modelCartLists.get(i).getSub_name());
         holder.tv_des.setText(modelCartLists.get(i).getDescription());
 
-        Glide.with(context).load(modelCartLists.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelCartLists.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .dontAnimate().into(holder.image_cartlist);

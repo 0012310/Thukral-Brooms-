@@ -49,7 +49,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         holder.progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         holder.progressDialog.setProgress(0);
 
-        Glide.with(context).load(modelOrderArrayList.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelOrderArrayList.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .dontAnimate().into(holder.image_orderd);

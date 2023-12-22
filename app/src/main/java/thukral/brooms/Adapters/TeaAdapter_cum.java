@@ -74,7 +74,7 @@ public class TeaAdapter_cum extends RecyclerView.Adapter<TeaAdapter_cum.ViewHold
         holder.sales_price.setText("Rs" + " " + modelAllTeaArrayList.get(i).getSales_price());
         holder.reg_price.setText("Rs" + " " + modelAllTeaArrayList.get(i).getRegular_price());
 
-        Glide.with(context).load(modelAllTeaArrayList.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelAllTeaArrayList.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .dontAnimate().into(holder.thumbnail);

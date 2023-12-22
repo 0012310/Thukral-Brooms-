@@ -81,7 +81,7 @@ public class DusterAdapter extends RecyclerView.Adapter<DusterAdapter.ViewHolder
         holder.reg_price.setText("Rs" + " " + modelAllDusters.get(i).getRegular_price());
        cl = (DusterActivity) context;
 
-        Glide.with(context).load(modelAllDusters.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelAllDusters.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.logo_bg)
                 .dontAnimate().into(holder.thumbnail);

@@ -64,7 +64,7 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.ViewHo
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setProgress(0);
 
-        Glide.with(context).load(modelWishLists.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelWishLists.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .dontAnimate().into(holder.image_wish);

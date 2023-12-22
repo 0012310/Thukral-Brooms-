@@ -23,6 +23,7 @@
 
 
             <WebView
+                android:visibility="gone"
                 android:layout_margin="5dp"
                 android:id="@+id/web_view_term"
                 android:layout_width="match_parent"
@@ -40,6 +41,7 @@
             </WebView>
 
             <WebView
+                android:visibility="gone"
                 android:layout_marginTop="20dp"
                 android:layout_margin="5dp"
                 android:id="@+id/web_view_payment"
@@ -49,6 +51,7 @@
             </WebView>
 
             <WebView
+                android:visibility="gone"
                 android:layout_marginTop="20dp"
                 android:layout_margin="5dp"
                 android:id="@+id/web_view_return_policy"

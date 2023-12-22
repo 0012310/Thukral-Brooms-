@@ -78,7 +78,7 @@ public class CleanAdapter_cum extends RecyclerView.Adapter<CleanAdapter_cum.View
         holder.sales_price.setText("Rs" + " " + modelAllCleanArrayList.get(i).getSales_price());
         holder.reg_price.setText("Rs" + " " + modelAllCleanArrayList.get(i).getRegular_price());
 
-        Glide.with(context).load(modelAllCleanArrayList.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelAllCleanArrayList.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .dontAnimate().into(holder.thumbnail);

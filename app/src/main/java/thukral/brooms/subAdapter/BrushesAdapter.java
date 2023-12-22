@@ -77,7 +77,7 @@ public class BrushesAdapter extends RecyclerView.Adapter<BrushesAdapter.ViewHold
 
        cl = (BrushsActivity) context;
 
-        Glide.with(context).load(modelAllBrushes.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelAllBrushes.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.logo_bg)
                 .dontAnimate().into(holder.thumbnail);

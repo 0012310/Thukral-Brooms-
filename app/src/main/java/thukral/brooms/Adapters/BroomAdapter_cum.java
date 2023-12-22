@@ -75,7 +75,7 @@ public class BroomAdapter_cum extends RecyclerView.Adapter<BroomAdapter_cum.View
         holder.reg_price.setText("Rs" + " " + modelAllBroomsArrayList.get(i).getRegular_price());
         cl = (BroomsActivity_Cum) context;
 
-        Glide.with(context).load(modelAllBroomsArrayList.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelAllBroomsArrayList.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .dontAnimate().into(holder.thumbnail);

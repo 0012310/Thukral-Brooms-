@@ -71,7 +71,7 @@ public class WiperAllDataAdapter extends RecyclerView.Adapter<WiperAllDataAdapte
 
         cl = (WipersSubActivity) context;
 
-        Glide.with(context).load(modelsubtosubListArrayList.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelsubtosubListArrayList.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.logo_bg)
                 .dontAnimate().into(holder.thumbnail);

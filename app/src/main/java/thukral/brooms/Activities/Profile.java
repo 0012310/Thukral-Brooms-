@@ -91,7 +91,7 @@ public class Profile extends AppCompatActivity {
                         et_mob.setText(jsonObject1.getString("phone"));
                         et_email.setText(jsonObject1.getString("email"));
 
-                        Glide.with(context).load(jsonObject1.getString("image")).crossFade()
+                        Glide.with(context).load(jsonObject1.getString("image"))
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .placeholder(R.drawable.profile)
                                 .dontAnimate().into(prof_img);

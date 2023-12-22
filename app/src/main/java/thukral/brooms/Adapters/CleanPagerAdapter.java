@@ -47,7 +47,7 @@ public class CleanPagerAdapter extends PagerAdapter {
 
 
 
-        Glide.with(context).load(images.get(position)).crossFade()
+        Glide.with(context).load(images.get(position))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.logo_bg)
                 .dontAnimate().into(myImage);

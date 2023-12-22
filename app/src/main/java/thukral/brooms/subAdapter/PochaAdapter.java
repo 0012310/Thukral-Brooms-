@@ -77,7 +77,7 @@ public class PochaAdapter extends RecyclerView.Adapter<PochaAdapter.ViewHolder> 
         holder.reg_price.setText("Rs" + " " + modelAllPochas.get(i).getRegular_price());
         cl = (PochaActivity) context;
 
-        Glide.with(context).load(modelAllPochas.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelAllPochas.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.logo_bg)
                 .dontAnimate().into(holder.thumbnail);

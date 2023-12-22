@@ -190,7 +190,8 @@ public class MainActivity extends AppCompatActivity
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                         tv_header_name.setText(jsonObject1.getString("fullname"));
-                        Glide.with(context).load(jsonObject1.getString("image")).crossFade()
+                        Glide.with(context).load(jsonObject1.getString("image"))
+                       // Glide.with(context).load(jsonObject1.getString("image")).crossFade()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .placeholder(R.drawable.profile)
                                 .dontAnimate().into(header_image);
@@ -457,6 +458,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, AboutUs.class);
             startActivity(intent);
 
+        }   else if (id == R.id.nav_privacy) {
+            Intent intent = new Intent(MainActivity.this, Term_Conditions.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_share) {
 
             Toast.makeText(context, "Share", Toast.LENGTH_SHORT).show();
@@ -479,6 +484,7 @@ public class MainActivity extends AppCompatActivity
             LocalSharedPreferences.saveIsLogin(this, false);
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

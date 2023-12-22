@@ -78,7 +78,7 @@ public class MopAdapter extends RecyclerView.Adapter<MopAdapter.ViewHolder> {
         holder.reg_price.setText("Rs" + " " + modelAllMops.get(i).getRegular_price());
       cl = (MopActivity) context;
 
-        Glide.with(context).load(modelAllMops.get(i).getImage()).crossFade()
+        Glide.with(context).load(modelAllMops.get(i).getImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.mipmap.logo_bg)
                 .dontAnimate().into(holder.thumbnail);

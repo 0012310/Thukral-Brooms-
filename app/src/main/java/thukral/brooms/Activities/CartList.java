@@ -461,7 +461,6 @@ public class CartList extends AppCompatActivity implements Activity_refresh_Oncl
                 Map<String, String> params = new HashMap<>();
                 params.put("user_id", LocalSharedPreferences.getUserid(context));
                 params.put("distributor_id", "" + dis_id);
-
                 return params;
             }
         };

@@ -64,6 +64,12 @@ public class SubtoSubDataAdapter  extends RecyclerView.Adapter<SubtoSubDataAdapt
     @Override
     public void onBindViewHolder(@NonNull final SubtoSubDataAdapter.ViewHolder holder, final int i) {
 
+        holder.progressDialog = new ProgressDialog(context);
+        holder.progressDialog.setCancelable(true);
+        holder.progressDialog.setMessage("Loading");
+        holder.progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        holder.progressDialog.setProgress(0);
+
         holder.name.setText(modelsubtosubListArrayList.get(i).getName());
         holder.tv_description.setText(modelsubtosubListArrayList.get(i).getDescription());
         holder.sales_price.setText("Rs" + " " + modelsubtosubListArrayList.get(i).getSales_price());
@@ -118,7 +124,6 @@ public class SubtoSubDataAdapter  extends RecyclerView.Adapter<SubtoSubDataAdapt
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://thukralbroom.com/api/wishlist.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(context, "" + response, Toast.LENGTH_SHORT).show();
                 Log.d("Data_Wish_data", response);
                 holder.progressDialog.dismiss();
 

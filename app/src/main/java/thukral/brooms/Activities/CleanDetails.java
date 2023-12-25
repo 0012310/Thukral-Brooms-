@@ -195,7 +195,6 @@ public class CleanDetails extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d("add_cart_data", response);
                 progressDialog.dismiss();
-                Toast.makeText(context, "" + response, Toast.LENGTH_SHORT).show();
                 try {
 
                     JSONObject jsonObject = new JSONObject(response);
@@ -245,7 +244,6 @@ public class CleanDetails extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d("add_cart_data", response);
                 progressDialog.dismiss();
-                Toast.makeText(context, "" + response, Toast.LENGTH_SHORT).show();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getString("message").equals("Products has been added to cart.")) {

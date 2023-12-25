@@ -118,7 +118,6 @@ public class TeaAdapter extends RecyclerView.Adapter<TeaAdapter.ViewHolder> {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://thukralbroom.com/api/wishlist.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(context, "" + response, Toast.LENGTH_SHORT).show();
                 Log.d("Data_Wish_data", response);
                 holder.progressDialog.dismiss();
 

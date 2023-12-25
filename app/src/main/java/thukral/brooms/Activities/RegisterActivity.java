@@ -169,7 +169,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(String s) {
                 progressDialog.dismiss();
-            //    Toast.makeText(RegisterActivity.this, "" + s, Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(RegisterActivity.this, "" + s, Toast.LENGTH_SHORT).show();
                 Log.d("data_Distributor", s);
                 try {
                     JSONObject jsonObject = new JSONObject(s);
@@ -243,7 +243,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(String s) {
                 progressDialog.dismiss();
-             //   Toast.makeText(RegisterActivity.this, "" + s, Toast.LENGTH_SHORT).show();
+                //   Toast.makeText(RegisterActivity.this, "" + s, Toast.LENGTH_SHORT).show();
                 Log.d("data", s);
 
                 try {
@@ -321,7 +321,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("Data_State", response);
-                //     Toast.makeText(context, "" + response, Toast.LENGTH_SHORT).show();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("data");
@@ -487,11 +486,11 @@ public class RegisterActivity extends AppCompatActivity {
         spinner_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
-                Toast.makeText(context, "" + stringArrayList_state.get(i), Toast.LENGTH_SHORT).show();
-                Toast.makeText(context, "" + stringArrayList_state_id.get(i), Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(context, "" + stringArrayList_state.get(i), Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(context, "" + stringArrayList_state_id.get(i), Toast.LENGTH_SHORT).show();
                 ALL_ZONE(stringArrayList_state_id.get(i));
                 STATE_ID = stringArrayList_state_id.get(i);
-                Toast.makeText(context, "" + STATE_ID, Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(context, "" + STATE_ID, Toast.LENGTH_SHORT).show();
                 progressDialog.show();
 
 
